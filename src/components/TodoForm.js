@@ -1,10 +1,28 @@
+import { useState } from "react";
 
+function TodoForm({ onAdd }) {
+  const [value, setValue] = useState("");
 
-function TodoForm() {
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+    onAdd(value);
+    setValue("");
+  };
+
   return (
-    <form className="todo__form">
-      <input type="text" placeholder="Введите задание..." className="input" />
-      <button className="button">Добавить</button>
+    <form onSubmit={handlerSubmit} className="todo__form">
+      <input
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        type="text"
+        placeholder="Введите задание..."
+        value={value}
+        className="input"
+      />
+      <button type="submit" className="button">
+        Добавить
+      </button>
     </form>
   );
 }

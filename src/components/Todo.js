@@ -1,21 +1,18 @@
 import { MdDeleteOutline, MdDoneOutline } from "react-icons/md";
 
-function Todo() {
+function Todo({ task, onDone, onDelete }) {
   return (
-    <div className="todo__block">
-      <ul className="todo__items">
-        <li className="todo__item">
-          Купить хлеб
-          <MdDeleteOutline className="todo__delete icons" />
-          <MdDoneOutline className="todo__done icons" />
-        </li>
-        <li className="todo__item">
-          Купить хлеб
-          <MdDeleteOutline className="todo__delete icons" />
-          <MdDoneOutline className="todo__done icons" />
-        </li>
-      </ul>
-    </div>
+    <li className={task.done === true ? "done" : ""}>
+      {task.task}
+      <MdDeleteOutline
+        onClick={() => onDelete(task.id)}
+        className="todo__delete icons"
+      />
+      <MdDoneOutline
+        onClick={() => onDone(task.id)}
+        className="todo__done icons"
+      />
+    </li>
   );
 }
 

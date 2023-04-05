@@ -11,7 +11,7 @@ body {
 
 .wrapper {
   background-color: rgb(161, 89, 228);;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +58,7 @@ body {
 
 .todo__block {
   width: 500px;
-  height: 200px;
+  min-height: 200px;
   background-color: rgb(86, 51, 118);
    box-shadow: 11px 13px 28px -7px rgba(0,0,0,0.75);
   -webkit-box-shadow: 11px 13px 28px -7px rgba(0,0,0,0.75);
@@ -73,6 +73,11 @@ body {
   padding: 5px;
   border-radius: 5px;
   margin-bottom: 10px;
+}
+
+.todo__block li.done {
+  text-decoration: line-through;
+  color:rgb(55, 53, 53);
 }
 
 .icons {
